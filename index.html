@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sản phẩm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Danh sách sản phẩm</h1>
+
+        <div class="search-box">
+            <input type="text" id="searchInput"
+                placeholder="Nhập tên sản phẩm...">
+            <button onclick="timKiem()">Tìm kiếm</button>
+        </div>
+
+        <p id="message"></p>
+
+        <div id="productList" class="product-grid"></div>
+
+        <div class="explain">
+            <h2>Giải thích logic tư duy</h2>
+
+            <p>
+                <strong>1. Xử lý input người dùng:</strong><br>
+                Dữ liệu nhập vào được dùng để so sánh chuỗi, không chèn trực tiếp
+                vào HTML bằng <code>innerHTML</code>. Sử dụng
+                <code>textContent</code> để tránh lỗi XSS (Cross Site Scripting)
+                và các đoạn mã injection.
+            </p>
+
+            <p>
+                <strong>2. Tìm kiếm không phân biệt hoa thường:</strong><br>
+                Chuyển cả tên sản phẩm và từ khóa về chữ thường bằng
+                <code>toLowerCase()</code> trước khi so sánh.
+            </p>
+
+            <p>
+                <strong>3. Tối ưu tìm kiếm:</strong><br>
+                Dùng phương thức <code>filter()</code> để duyệt mảng một lần,
+                chỉ hiển thị các sản phẩm phù hợp. Khi ô tìm kiếm rỗng sẽ hiển
+                thị toàn bộ danh sách sản phẩm.
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
